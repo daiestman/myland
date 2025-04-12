@@ -41,25 +41,25 @@
           <img src="https://imengyu.top/assets/images/jy/JiYuTrainerLogo256.png" alt="jiyu trainer" class="software-icon">
           <h3>jiyu trainer</h3>
           <p>使用病毒暴力破解网络教室</p>
-          <a href="https://example.com/jiyutrainer" target="_blank" class="download-button">下载</a>
+          <button class="download-button" data-download-url="https://example.com/jiyutrainer">下载</button>
         </article>
         <article class="feature-card">
           <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.JpPX-0a4-xfN3HNpr6NcJQHaHa?rs=1&pid=ImgDetMain" alt="FLclash" class="software-icon">
           <h3>FLclash</h3>
           <p>翻墙用的,请勿在机房下载😂</p>
-          <a href="https://example.com/flclash" target="_blank" class="download-button">下载</a>
+          <button class="download-button" data-download-url="https://example.com/flclash">下载</button>
         </article>
         <article class="feature-card">
           <img src="https://img3.downza.cn/download/202404/103655-660b6f4735316.jpg" alt="无" class="software-icon">
           <h3>无</h3>
           <p>not found</p>
-          <a href="https://example.com/notfound" target="_blank" class="download-button">下载</a>
+          <button class="download-button" data-download-url="https://example.com/notfound">下载</button>
         </article>
         <article class="feature-card">
           <img src="https://img3.downza.cn/download/202404/103655-660b6f4735316.jpg" alt="新软件" class="software-icon">
           <h3>新软件</h3>
           <p>这是一个新软件的描述。</p>
-          <a href="https://example.com/newsoftware" target="_blank" class="download-button">下载</a>
+          <button class="download-button" data-download-url="https://example.com/newsoftware">下载</button>
         </article>
       </div>
     </section>
@@ -67,9 +67,22 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p> 2025 by 李瑞锦</p>
+      <p>2025 by 李瑞锦</p>
     </div>
   </footer>
+
+  <!-- Modal -->
+  <div id="password-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <h2>请输入密码</h2>
+      <p>今日日期加1（格式为MMDD+1）</p>
+      <input type="text" id="password-input" placeholder="请输入密码">
+      <button onclick="verifyPassword()">确定</button>
+    </div>
+  </div>
+
+  <input type="hidden" id="download-url">
 
   <script src="script.js"></script>
 </body>
