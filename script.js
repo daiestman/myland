@@ -40,8 +40,23 @@ featureCards.forEach(card => {
   observer.observe(card);
 });
 
-// Function to check password before allowing download
-function checkPassword(downloadUrl) {
+// Function to open the modal
+function openModal(downloadUrl) {
+  document.getElementById('password-modal').style.display = 'block';
+  document.getElementById('password-input').value = ''; // Clear previous input
+  document.getElementById('download-url').value = downloadUrl; // Store download URL
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById('password-modal').style.display = 'none';
+}
+
+// Function to verify the password
+function verifyPassword() {
+  const downloadUrl = document.getElementById('download-url').value;
+  const userPassword = document.getElementById('password-input').value;
+
   // Get today's date and calculate the password
   const today = new Date();
   const month = today.getMonth() + 1; // GetMonth() is zero-based (0 = January)
@@ -54,9 +69,6 @@ function checkPassword(downloadUrl) {
   // Create the password by concatenating month and day, then add 1
   const password = parseInt(formattedMonth + formattedDay) + 1;
 
-  // Prompt the user to enter the password
-  const userPassword = prompt("请输入密码（今日日期加1，格式为MMDD+1）：");
-
   // Check if the entered password is correct
   if (parseInt(userPassword) === password) {
     // If correct, redirect to the download URL
@@ -66,3 +78,11 @@ function checkPassword(downloadUrl) {
     alert("密码错误，请重新输入！");
   }
 }
+
+// Add event listener to download buttons
+document.querySelectorAll('.download-button').forEach(button => {
+  button.addEventListener('click', function() {
+    const downloadUrl = this.getAttribute('data-download-url');
+    openModal(downloadUrl);
+  });
+});
