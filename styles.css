@@ -39,7 +39,29 @@ body {
 }
 
 /* ===== Header ===== */
-/* 在 feature-card 中添加下载按钮的样式 */
+/* 在 feature-card 中添加软件图标和下载按钮的样式 */
+.feature-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center; /* 使内容居中 */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.software-icon {
+  width: 100px; /* 设置图标大小 */
+  height: 100px;
+  object-fit: cover; /* 确保图标填充整个区域 */
+  border-radius: 50%; /* 圆形图标 */
+  margin-bottom: 1rem;
+}
+
 .download-button {
   display: inline-block;
   margin-top: 1rem;
