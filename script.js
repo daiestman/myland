@@ -1,88 +1,95 @@
-// Theme Toggle
+// 主题切换功能
 document.getElementById('scroll-down').addEventListener('click', function() {
   const featuresSection = document.querySelector('.features');
-  featuresSection.scrollIntoView({ behavior: 'smooth' });
+  featuresSection.scrollIntoView({ behavior: 'smooth' }); // 平滑滚动到features部分
 });
 
 const themeToggle = document.getElementById('theme-toggle');
 const html = document.documentElement;
 
 themeToggle.addEventListener('click', () => {
-  const currentTheme = html.getAttribute('data-theme');
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  const currentTheme = html.getAttribute('data-theme'); // 获取当前主题
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light'; // 切换主题
   html.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
+  localStorage.setItem('theme', newTheme); // 保存主题到本地存储
 });
 
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   html.setAttribute('data-theme', savedTheme);
 } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  html.setAttribute('data-theme', 'dark');
+  html.setAttribute('data-theme', 'dark'); // 根据系统主题设置默认主题
 }
 
-// Scroll animation for feature cards
+// 动画效果：功能卡片滚动时显示
 const featureCards = document.querySelectorAll('.feature-card');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
+      entry.target.style.opacity = '1'; // 显示卡片
       entry.target.style.transform = 'translateY(0)';
     }
   });
 }, { threshold: 0.1 });
 
 featureCards.forEach(card => {
-  card.style.opacity = '0';
+  card.style.opacity = '0'; // 初始隐藏
   card.style.transform = 'translateY(20px)';
   card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   observer.observe(card);
 });
 
-// Function to open the modal
-function openModal(downloadUrl) {
-  document.getElementById('password-modal').style.display = 'block';
-  document.getElementById('password-input').value = ''; // Clear previous input
-  document.getElementById('download-url').value = downloadUrl; // Store download URL
+// 模态框相关函数
+function openModal(downloadUrl, section) {
+  document.getElementById('password-modal').style.display = 'block'; // 显示模态框
+  document.getElementById('password-input').value = ''; // 清空输入框
+  document.getElementById('download-url').value = downloadUrl; // 设置下载链接
+  document.getElementById('password-modal').setAttribute('data-section', section); // 设置区域标识
 }
 
-// Function to close the modal
 function closeModal() {
-  document.getElementById('password-modal').style.display = 'none';
+  document.getElementById('password-modal').style.display = 'none'; // 关闭模态框
 }
 
-// Function to verify the password
 function verifyPassword() {
   const downloadUrl = document.getElementById('download-url').value;
   const userPassword = document.getElementById('password-input').value;
+  const section = document.getElementById('password-modal').getAttribute('data-section'); // 获取区域标识
 
-  // Get today's date and calculate the password
+  // 根据区域生成不同的密码
   const today = new Date();
-  const month = today.getMonth() + 1; // GetMonth() is zero-based (0 = January)
+  const month = today.getMonth() + 1; // 获取月份（从0开始）
   const day = today.getDate();
 
-  // Format month and day to ensure two digits (e.g., 04 for April)
+  // 格式化月份和日期，确保两位数
   const formattedMonth = month.toString().padStart(2, '0');
   const formattedDay = day.toString().padStart(2, '0');
 
-  // Create the password by concatenating month and day, then add 1
-  const password = parseInt(formattedMonth + formattedDay) + 1;
-
-  // Check if the entered password is correct
-  if (parseInt(userPassword) === password) {
-    // If correct, redirect to the download URL
-    window.location.href = downloadUrl;
+  // 生成密码
+  let password;
+  if (section === 'software') {
+    password = parseInt(formattedMonth + formattedDay) + 1; // 仓库区密码
+  } else if (section === 'function') {
+    password = parseInt(formattedMonth + formattedDay) + 11; // 功能区密码
   } else {
-    // If incorrect, show an alert
-    alert("密码错误，请重新输入！");
+    alert("未知区域！");
+    return;
+  }
+
+  // 验证密码
+  if (parseInt(userPassword) === password) {
+    window.location.href = downloadUrl; // 如果正确，跳转到下载链接
+  } else {
+    alert("密码错误，请重新输入！"); // 如果错误，提示用户
   }
 }
 
-// Add event listener to download buttons
+// 为下载按钮添加事件监听
 document.querySelectorAll('.download-button').forEach(button => {
   button.addEventListener('click', function() {
     const downloadUrl = this.getAttribute('data-download-url');
-    openModal(downloadUrl);
+    const section = this.getAttribute('data-section'); // 获取区域标识
+    openModal(downloadUrl, section); // 点击下载按钮时打开模态框
   });
 });
