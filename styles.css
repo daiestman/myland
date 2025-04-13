@@ -44,36 +44,69 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000; /* 确保模态框在最上层 */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4); /* 半透明背景 */
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--card-bg); /* 使用主题的卡片背景色 */
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--text-color); /* 使用主题的文字颜色 */
   width: 80%;
   max-width: 400px;
+  border-radius: 8px; /* 添加圆角 */
+  box-shadow: var(--shadow); /* 使用主题的阴影 */
 }
 
 .close-button {
-  color: #aaa;
+  color: var(--text-color); /* 使用主题的文字颜色 */
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close-button:hover,
 .close-button:focus {
-  color: black;
+  color: var(--primary-color); /* 鼠标悬停时使用主题的主颜色 */
   text-decoration: none;
+}
+
+/* 输入框和按钮样式 */
+#password-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid var(--text-color); /* 使用主题的文字颜色 */
+  border-radius: 4px; /* 添加圆角 */
+  background-color: var(--bg-color); /* 使用主题的背景色 */
+  color: var(--text-color); /* 使用主题的文字颜色 */
+}
+
+#password-input::placeholder {
+  color: var(--text-color); /* 使用主题的文字颜色 */
+  opacity: 0.5; /* 使占位符颜色更淡 */
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px; /* 添加圆角 */
+  background-color: var(--primary-color); /* 使用主题的主颜色 */
+  color: white; /* 按钮文字颜色为白色 */
   cursor: pointer;
+  transition: background-color 0.3s ease; /* 添加背景颜色过渡效果 */
+}
+
+button:hover {
+  background-color: var(--secondary-color); /* 鼠标悬停时使用主题的次级颜色 */
 }
 
 .feature-card {
