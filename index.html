@@ -1,89 +1,103 @@
 <!DOCTYPE html>
-<html lang="CN" data-theme="light">
+<html lang="CN" data-theme="light"> <!-- 设置语言和主题 -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>李瑞锦的仓库</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css"> <!-- 引入CSS样式 -->
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <h1 class="logo">李瑞锦的仓库</h1>
+      <h1 class="logo">李瑞锦的仓库</h1> <!-- 网站标题 -->
       <nav class="main-nav">
         <ul>
-          <li><a href="#">首页</a></li>
+          <li><a href="/">首页</a></li> <!-- 导航链接 -->
           <li><a href="#">友链</a></li>
-          <li><a href="#">博客</a></li>
+          <li><a href="blogs.myvnc.com">博客</a></li>
           <li><a href="#">关于</a></li>
         </ul>
       </nav>
-      <button id="theme-toggle" aria-label="Toggle dark mode">✨切换模式🌕</button>
+      <button id="theme-toggle" aria-label="Toggle dark mode">切换模式🌕</button> <!-- 主题切换按钮 -->
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
       <div class="hero-content">
-        <h2>为你而开的软件仓库</h2>
-        <p>A software repository open for you.</p>
-        <button class="cta-button" id="scroll-down">前往</button>
+        <h2>为你而开的软件仓库</h2> <!-- 主标题 -->
+        <p>A software repository open for you.</p> <!-- 副标题 -->
+        <button class="cta-button" id="scroll-down">前往</button> <!-- 按钮，点击后滚动到下方 -->
       </div>
       <div class="hero-image">
-        <div class="floating-shape"></div>
+        <div class="floating-shape"></div> <!-- 浮动形状 -->
       </div>
     </section>
 
-    <section class="features">
-      <h2 class="section-title">仓库</h2>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <img src="https://imengyu.top/assets/images/jy/JiYuTrainerLogo256.png" alt="jiyu trainer" class="software-icon">
-          <h3>jiyu trainer</h3>
-          <p>使用病毒暴力破解网络教室</p>
-          <button class="download-button" data-download-url="https://example.com/jiyutrainer">下载</button>
-        </article>
-        <article class="feature-card">
-          <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.JpPX-0a4-xfN3HNpr6NcJQHaHa?rs=1&pid=ImgDetMain" alt="FLclash" class="software-icon">
-          <h3>FLclash</h3>
-          <p>翻墙用的,请勿在机房下载😂</p>
-          <button class="download-button" data-download-url="https://example.com/flclash">下载</button>
-        </article>
-        <article class="feature-card">
-          <img src="https://img3.downza.cn/download/202404/103655-660b6f4735316.jpg" alt="无" class="software-icon">
-          <h3>无</h3>
-          <p>not found</p>
-          <button class="download-button" data-download-url="https://example.com/notfound">下载</button>
-        </article>
-        <article class="feature-card">
-          <img src="https://img3.downza.cn/download/202404/103655-660b6f4735316.jpg" alt="新软件" class="software-icon">
-          <h3>新软件</h3>
-          <p>这是一个新软件的描述。</p>
-          <button class="download-button" data-download-url="https://example.com/newsoftware">下载</button>
-        </article>
-      </div>
-    </section>
+    <!-- 仓库区 -->
+<!-- 仓库区 -->
+<section class="features" id="software-section">
+  <h2 class="section-title">仓库</h2>
+  <div class="feature-grid">
+    <article class="feature-card">
+      <img src="https://imengyu.top/assets/images/jy/JiYuTrainerLogo256.png" alt="jiyu trainer" class="software-icon">
+      <h3>jiyu trainer</h3>
+      <p>使用病毒暴力破解网络教室</p>
+      <button class="download-button" data-download-url="https://www.123865.com/s/Gyv9Td-V9zW" data-section="software">下载</button>
+    </article>
+    <article class="feature-card">
+      <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.JpPX-0a4-xfN3HNpr6NcJQHaHa?rs=1&pid=ImgDetMain" alt="FLclash" class="software-icon">
+      <h3>FLclash</h3>
+      <p>翻墙用的，请勿在机房下载😂</p>
+      <button class="download-button" data-download-url="https://down.clashcn.com/soft/clashcn.com_FlClash-0.8.80-windows-amd64-setup.exe" data-section="software">下载</button>
+    </article>
+    <article class="feature-card">
+      <img src="http://q1.qlogo.cn/g?b=qq&nk=2741830473&s=100" alt="无" class="software-icon">
+      <h3>无</h3>
+      <p>not found</p>
+      <button class="download-button" data-download-url="/" data-section="software">下载</button>
+    </article>
+  </div>
+</section>
+
+<!-- 功能区 -->
+<section class="features" id="function-section">
+  <h2 class="section-title">功能</h2>
+  <div class="feature-grid">
+    <article class="feature-card">
+      <h3>开盒</h3>
+      <h5>就是一个开盲盒小游戏</h5>
+      <button class="download-button" data-download-url="liruijin.myvnc.com/aB3cD7eFgH8iJkL9mNoPqR1sT2uVwX3yZ4aB5cD6eF7gH8iJ9kL0mN1oP2qR3sT4uV5wX6yZ7" data-section="function">前往</button>
+    </article>
+    <article class="feature-card">
+      <h3>无</h3>
+      <p>无</p>
+      <button class="download-button" data-download-url="https://down.clashcn.com/soft/clashcn.com_FlClash-0.8.80-windows-amd64-setup.exe" data-section="function">下载</button>
+    </article>
+  </div>
+</section>
   </main>
+
 
   <footer class="site-footer">
     <div class="container">
-      <p>2025 by 李瑞锦</p>
+      <p>2025 by 李瑞锦</p> <!-- 版权信息 -->
     </div>
   </footer>
 
-  <!-- Modal -->
+  <!-- 密码模态框 -->
   <div id="password-modal" class="modal">
     <div class="modal-content">
-      <span class="close-button" onclick="closeModal()">&times;</span>
+      <span class="close-button" onclick="closeModal()">&times;</span> <!-- 关闭按钮 -->
       <h2>请输入密码</h2>
       <p>为了防止泛滥，所以设定密码来保护应用。密码请询问我</p>
-      <input type="text" id="password-input" placeholder="请输入密码">
-      <button onclick="verifyPassword()">确定</button>
+      <input type="text" id="password-input" placeholder="请输入密码"> <!-- 密码输入框 -->
+      <button onclick="verifyPassword()">确定</button> <!-- 确认按钮 -->
     </div>
   </div>
 
-  <input type="hidden" id="download-url">
+  <input type="hidden" id="download-url"> <!-- 隐藏的下载链接 -->
 
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- 引入JavaScript文件 -->
 </body>
 </html>
