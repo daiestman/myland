@@ -1,23 +1,26 @@
-/* ===== Base Styles ===== */
+/* 基础样式 */
 :root {
-  --primary-color: #4361ee;
-  --secondary-color: #3f37c9;
-  --text-color: #2b2d42;
-  --bg-color: #f8f9fa;
-  --card-bg: #ffffff;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --primary-color: #4361ee; /* 主颜色 */
+  --secondary-color: #3f37c9; /* 次级颜色 */
+  --text-color: #2b2d42; /* 文字颜色 */
+  --bg-color: #f8f9fa; /* 背景颜色 */
+  --card-bg: #ffffff; /* 卡片背景颜色 */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  /* 阴影样式 */
+  --transition: all 0.3s ease; /* 过渡效果 */
 }
 
+/* 暗色主题样式 */
 [data-theme="dark"] {
-  --primary-color: #4895ef;
-  --secondary-color: #4361ee;
-  --text-color: #f8f9fa;
-  --bg-color: #121212;
-  --card-bg: #1e1e1e;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --primary-color: #4895ef; /* 暗色主题下的主颜色 */
+  --secondary-color: #4361ee; /* 暗色主题下的次级颜色 */
+  --text-color: #f8f9fa; /* 暗色主题下的文字颜色 */
+  --bg-color: #121212; /* 暗色主题下的背景颜色 */
+  --card-bg: #1e1e1e; /* 暗色主题下的卡片背景颜色 */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 暗色主题下的阴影样式 */
 }
 
+/* 全局样式 */
 * {
   margin: 0;
   padding: 0;
@@ -25,323 +28,350 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  line-height: 1.6;
-  transition: var(--transition);
+  font-family: 'Segoe UI', sans-serif; /* 字体设置 */
+  color: var(--text-color); /* 使用变量设置文字颜色 */
+  background-color: var(--bg-color); /* 使用变量设置背景颜色 */
+  line-height: 1.6; /* 行高 */
+  transition: var(--transition); /* 过渡效果 */
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 90%; /* 容器宽度 */
+  max-width: 1200px; /* 最大宽度 */
+  margin: 0 auto; /* 居中 */
 }
 
-/* ===== Header ===== */
-/* 在 feature-card 中添加软件图标和下载按钮的样式 */
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000; /* 确保模态框在最上层 */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); /* 半透明背景 */
-}
-
-.modal-content {
-  background-color: var(--card-bg); /* 使用主题的卡片背景色 */
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid var(--text-color); /* 使用主题的文字颜色 */
-  width: 80%;
-  max-width: 400px;
-  border-radius: 8px; /* 添加圆角 */
-  box-shadow: var(--shadow); /* 使用主题的阴影 */
-}
-
-.close-button {
-  color: var(--text-color); /* 使用主题的文字颜色 */
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close-button:hover,
-.close-button:focus {
-  color: var(--primary-color); /* 鼠标悬停时使用主题的主颜色 */
-  text-decoration: none;
-}
-
-/* 输入框和按钮样式 */
-#password-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0 20px;
-  border: 1px solid var(--text-color); /* 使用主题的文字颜色 */
-  border-radius: 4px; /* 添加圆角 */
-  background-color: var(--bg-color); /* 使用主题的背景色 */
-  color: var(--text-color); /* 使用主题的文字颜色 */
-}
-
-#password-input::placeholder {
-  color: var(--text-color); /* 使用主题的文字颜色 */
-  opacity: 0.5; /* 使占位符颜色更淡 */
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 4px; /* 添加圆角 */
-  background-color: var(--primary-color); /* 使用主题的主颜色 */
-  color: white; /* 按钮文字颜色为白色 */
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* 添加背景颜色过渡效果 */
-}
-
-button:hover {
-  background-color: var(--secondary-color); /* 鼠标悬停时使用主题的次级颜色 */
-}
-
-.feature-card {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  text-align: center; /* 使内容居中 */
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.software-icon {
-  width: 50px; /* 设置图标大小 */
-  height: 50px;
-  object-fit: cover; /* 确保图标填充整个区域 */
-  border-radius: 50%; /* 圆形图标 */
-  margin-bottom: 1rem;
-}
-
-.download-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: var(--primary-color);
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.download-button:hover {
-  background-color: var(--secondary-color);
-}
+/* 头部样式 */
 .site-header {
-  padding: 1rem 0;
-  box-shadow: var(--shadow);
-  position: sticky;
+  padding: 1rem 0; /* 内边距 */
+  box-shadow: var(--shadow); /* 阴影效果 */
+  position: sticky; /* 粘性定位 */
   top: 0;
-  background-color: var(--card-bg);
-  z-index: 100;
+  background-color: var(--card-bg); /* 背景颜色 */
+  z-index: 100; /* 层级 */
 }
 
 .site-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* 使用弹性布局 */
+  justify-content: space-between; /* 两端对齐 */
+  align-items: center; /* 垂直居中 */
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
+  font-size: 1.5rem; /* 字体大小 */
+  font-weight: 700; /* 字体加粗 */
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); /* 渐变背景 */
+  -webkit-background-clip: text; /* 文字渐变 */
   background-clip: text;
   color: transparent;
 }
 
 .main-nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
+  display: flex; /* 弹性布局 */
+  gap: 2rem; /* 间隔 */
+  list-style: none; /* 去掉列表样式 */
 }
 
 .main-nav a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
-  position: relative;
+  text-decoration: none; /* 去掉下划线 */
+  color: var(--text-color); /* 文字颜色 */
+  font-weight: 500; /* 字体加粗 */
+  position: relative; /* 相对定位 */
 }
 
 .main-nav a::after {
   content: '';
-  position: absolute;
+  position: absolute; /* 绝对定位 */
   bottom: -5px;
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--primary-color);
-  transition: var(--transition);
+  background: var(--primary-color); /* 背景颜色 */
+  transition: var(--transition); /* 过渡效果 */
 }
 
 .main-nav a:hover::after {
-  width: 100%;
+  width: 100%; /* 鼠标悬停时宽度 */
 }
 
 #theme-toggle {
+  position: fixed; /* 固定定位 */
+  bottom: 20px; /* 距离底部20px */
+  right: 20px; /* 距离右侧20px */
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* 字体大小 */
   cursor: pointer;
   color: var(--text-color);
+  padding: 0.5rem 1rem; /* 内边距 */
+  border-radius: 5px; /* 圆角 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+  z-index: 1000; /* 确保在最上层 */
 }
 
-/* ===== Hero Section ===== */
+#theme-toggle:hover {
+  background-color: var(--primary-color); /* 鼠标悬停时背景颜色 */
+  color: white; /* 鼠标悬停时文字颜色 */
+}
+
+
+/* 模态框样式 */
+.modal {
+  display: none; /* 默认不显示 */
+  position: fixed; /* 固定定位 */
+  z-index: 1000; /* 确保在最上层 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* 自动滚动 */
+  background-color: rgba(0, 0, 0, 0.4); /* 半透明背景 */
+}
+
+.modal-content {
+  background-color: var(--card-bg); /* 背景颜色 */
+  margin: 15% auto; /* 外边距 */
+  padding: 20px; /* 内边距 */
+  border: 1px solid var(--text-color); /* 边框颜色 */
+  width: 80%;
+  max-width: 400px; /* 最大宽度 */
+  border-radius: 8px; /* 圆角 */
+  box-shadow: var(--shadow); /* 阴影效果 */
+}
+
+.close-button {
+  color: var(--text-color); /* 文字颜色 */
+  float: right; /* 右浮动 */
+  font-size: 28px; /* 字体大小 */
+  font-weight: bold; /* 字体加粗 */
+  cursor: pointer; /* 鼠标样式 */
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: var(--primary-color); /* 鼠标悬停时颜色 */
+  text-decoration: none; /* 去掉下划线 */
+}
+
+#password-input {
+  width: 100%; /* 宽度 */
+  padding: 10px; /* 内边距 */
+  margin: 10px 0 20px; /* 外边距 */
+  border: 1px solid var(--text-color); /* 边框颜色 */
+  border-radius: 4px; /* 圆角 */
+  background-color: var(--bg-color); /* 背景颜色 */
+  color: var(--text-color); /* 文字颜色 */
+}
+
+#password-input::placeholder {
+  color: var(--text-color); /* 占位符颜色 */
+  opacity: 0.5; /* 透明度 */
+}
+
+button {
+  width: 100%; /* 宽度 */
+  padding: 10px; /* 内边距 */
+  border: none; /* 无边框 */
+  border-radius: 4px; /* 圆角 */
+  background-color: var(--primary-color); /* 背景颜色 */
+  color: white; /* 文字颜色 */
+  cursor: pointer; /* 鼠标样式 */
+  transition: background-color 0.3s ease; /* 背景颜色过渡效果 */
+}
+
+button:hover {
+  background-color: var(--secondary-color); /* 鼠标悬停时颜色 */
+}
+
+/* 功能卡片样式 */
+.feature-card {
+  background: var(--card-bg); /* 背景颜色 */
+  padding: 2rem; /* 内边距 */
+  border-radius: 10px; /* 圆角 */
+  box-shadow: var(--shadow); /* 阴影效果 */
+  transition: var(--transition); /* 过渡效果 */
+  text-align: center; /* 文字居中 */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px); /* 鼠标悬停时上移 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+}
+
+.software-icon {
+  width: 50px; /* 图标宽度 */
+  height: 50px; /* 图标高度 */
+  object-fit: cover; /* 图片填充 */
+  border-radius: 50%; /* 圆形图标 */
+  margin-bottom: 1rem; /* 外边距 */
+}
+
+.download-button {
+  display: inline-block; /* 显示方式 */
+  margin-top: 1rem; /* 外边距 */
+  padding: 0.6rem 1.2rem; /* 内边距 */
+  background-color: var(--primary-color); /* 背景颜色 */
+  color: white; /* 文字颜色 */
+  text-decoration: none; /* 去掉下划线 */
+  border-radius: 5px; /* 圆角 */
+  transition: background-color 0.3s ease; /* 背景颜色过渡效果 */
+}
+
+.download-button:hover {
+  background-color: var(--secondary-color); /* 鼠标悬停时颜色 */
+}
+
+/* 英雄区域样式 */
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  min-height: 80vh;
-  gap: 2rem;
+  display: grid; /* 网格布局 */
+  grid-template-columns: 1fr 1fr; /* 两列 */
+  align-items: center; /* 垂直居中 */
+  min-height: 80vh; /* 最小高度 */
+  gap: 2rem; /* 间隔 */
 }
 
 .hero-content h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* 自适应字体大小 */
+  margin-bottom: 1rem; /* 外边距 */
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
+  font-size: 1.2rem; /* 字体大小 */
+  margin-bottom: 2rem; /* 外边距 */
+  opacity: 0.9; /* 透明度 */
 }
 
 .cta-button {
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+  padding: 0.8rem 1.5rem; /* 按钮内边距 */
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); /* 渐变背景 */
+  color: white; /* 文字颜色 */
+  border: none; /* 无边框 */
+  border-radius: 50px; /* 圆角 */
+  font-weight: 600; /* 字体加粗 */
+  cursor: pointer; /* 鼠标样式 */
+  transition: var(--transition); /* 过渡效果 */
+  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3); /* 阴影效果 */
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+  transform: translateY(-3px); /* 鼠标悬停时上移 */
+  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4); /* 阴影效果 */
 }
 
 .hero-image {
-  position: relative;
-  height: 100%;
+  position: relative; /* 相对定位 */
+  height: 100%; /* 高度 */
 }
 
 .floating-shape {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  animation: float 8s ease-in-out infinite;
-  filter: blur(60px);
-  opacity: 0.3;
+  position: absolute; /* 绝对定位 */
+  width: 400px; /* 宽度 */
+  height: 400px; /* 高度 */
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); /* 渐变背景 */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* 圆角 */
+  animation: float 8s ease-in-out infinite; /* 浮动动画 */
+  filter: blur(60px); /* 模糊效果 */
+  opacity: 0.3; /* 透明度 */
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transform: translate(0, 0) rotate(0deg); /* 初始位置 */
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* 圆角 */
   }
   25% {
-    transform: translate(50px, -50px) rotate(10deg);
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(50px, -50px) rotate(10deg); /* 25% 位置 */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* 圆角 */
   }
   50% {
-    transform: translate(0, -100px) rotate(0deg);
-    border-radius: 70% 30% 50% 50% / 30% 70% 30% 70%;
+    transform: translate(0, -100px) rotate(0deg); /* 50% 位置 */
+    border-radius: 70% 30% 50% 50% / 30% 70% 30% 70%; /* 圆角 */
   }
   75% {
-    transform: translate(-50px, -50px) rotate(-10deg);
-    border-radius: 40% 60% 70% 30% / 70% 40% 60% 30%;
+    transform: translate(-50px, -50px) rotate(-10deg); /* 75% 位置 */
+    border-radius: 40% 60% 70% 30% / 70% 40% 60% 30%; /* 圆角 */
   }
 }
 
-/* ===== Features Section ===== */
+/* 功能区标题样式 */
 .section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin: 4rem 0 2rem;
-  position: relative;
+  text-align: center; /* 文字居中 */
+  font-size: 2rem; /* 字体大小 */
+  margin: 4rem 0 2rem; /* 外边距 */
+  position: relative; /* 相对定位 */
 }
 
 .section-title::after {
   content: '';
-  position: absolute;
+  position: absolute; /* 绝对定位 */
   bottom: -10px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  transform: translateX(-50%); /* 水平居中 */
+  width: 80px; /* 宽度 */
+  height: 4px; /* 高度 */
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); /* 渐变背景 */
 }
 
+/* 功能网格样式 */
 .feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
+  display: grid; /* 网格布局 */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自适应列 */
+  gap: 2rem; /* 间隔 */
+  margin: 3rem 0; /* 外边距 */
 }
 
-.feature-card {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-/* ===== Footer ===== */
+/* 底部样式 */
 .site-footer {
-  padding: 2rem 0;
-  text-align: center;
-  background-color: var(--card-bg);
-  margin-top: 4rem;
+  padding: 2rem 0; /* 内边距 */
+  text-align: center; /* 文字居中 */
+  background-color: var(--card-bg); /* 背景颜色 */
+  margin-top: 4rem; /* 外边距 */
 }
 
-/* ===== Responsive Design ===== */
+/* 响应式设计 */
+@media (max-width: 768px) {
+  #theme-toggle {
+    bottom: 10px; /* 在小屏幕上距离底部10px */
+    right: 10px; /* 在小屏幕上距离右侧10px */
+    font-size: 1.2rem; /* 减小字体大小 */
+    padding: 0.3rem 0.6rem; /* 减小内边距 */
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 4rem 0;
+    grid-template-columns: 1fr; /* 单列布局 */
+    text-align: center; /* 文字居中 */
+    padding: 4rem 0; /* 内边距 */
   }
 
   .hero-image {
-    display: none;
+    display: block; /* 隐藏浮动形状 */
   }
 
   .main-nav {
-    display: none;
+    display: none; /* 隐藏导航栏 */
   }
 }
+/* 功能卡片图标样式 */
+.card-icon {
+  font-size: 2.5rem; /* 图标大小 */
+  margin-bottom: 1rem; /* 外边距 */
+}
+
+/* 功能卡片下载按钮样式 */
+.download-button {
+  display: inline-block; /* 显示方式 */
+  margin-top: 1rem; /* 外边距 */
+  padding: 0.6rem 1.2rem; /* 内边距 */
+  background-color: var(--primary-color); /* 背景颜色 */
+  color: white; /* 文字颜色 */
+  text-decoration: none; /* 去掉下划线 */
+  border-radius: 5px; /* 圆角 */
+  transition: background-color 0.3s ease; /* 背景颜色过渡效果 */
+}
+
+.download-button:hover {
+  background-color: var(--secondary-color); /* 鼠标悬停时颜色 */
+}
+
